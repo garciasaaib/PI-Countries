@@ -14,30 +14,27 @@ module.exports = (sequelize) => {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
     },
     image: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    continent: {
-      type: DataTypes.STRING,
+    difficulty: {
+      type: DataTypes.INTEGER,
       allowNull: false,
+      validate: {
+        max: 5,
+        min: 1
+      }
     },
-    capital: {
+    duracion: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    subregion: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    area: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    population: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      validate: {
+        min: 1,
+        min: 90,
+      }
     }
   },{
     timestamps: false,

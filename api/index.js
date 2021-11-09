@@ -19,11 +19,13 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
+const { prechargeCountries } = require('./src/controller/country')
 const port = 3001;
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(port, () => {
+  server.listen(port, async () => {
+    await prechargeCountries()
     console.log(`listening at ${port}`); // eslint-disable-line no-console
   });
 });

@@ -12,31 +12,31 @@ module.exports = (sequelize) => {
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     image: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     continent: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     capital: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     subregion: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     area: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      type: DataTypes.NUMBER,
+      allowNull: true,
     },
     population: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      type: DataTypes.NUMBER,
+      allowNull: true,
     }
   },{
     timestamps: false,

@@ -1,0 +1,18 @@
+### get all countries
+GET http://localhost:3001/countries HTTP/1.1
+### get country by code
+GET http://localhost:3001/countries/MXN HTTP/1.1
+### get pokemon by name
+GET http://localhost:3001/countries?name="mexico" HTTP/1.1
+
+### create an activity
+POST http://localhost:3001/activity HTTP/1.1
+content-type: application/json
+
+{
+    "name": "dra",
+    "dificulty": 3,
+    "duration": 5,
+    "seasons": ["summer", "winter", "autumn", "spring"],
+}
+
