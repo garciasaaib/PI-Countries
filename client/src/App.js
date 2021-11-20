@@ -1,9 +1,36 @@
-import './App.css';
+import './styles/App.css';
+import { 
+  Routes, 
+  Route,
+  useLocation,
+  useNavigate
+} from 'react-router-dom'
+
+
+// components
+import Navbar from './modules/components/Navbar';
+import DetailCard from './modules/components/DetailCard'
+import ActivityForm from './modules/components/ActivityForm';
+import Modal from './modules/components/Modal';
+
+// views
+import Home from './modules/views/Home'
+import Landing from './modules/views/Landing'
+import NotFound from './modules/views/NotFound'
 
 function App() {
+  let location = useLocation()
+  console.log(location.state)
   return (
     <div className="App">
-      <h1>Henry Countries</h1>
+      <Navbar>Henry Countries</Navbar>
+      <Routes>
+        <Route index element={<Landing />}/>
+        <Route path="/home" element={<Home />}/>
+        <Route path="/country/:id" element={<DetailCard />}/>
+        <Route path="/activity/add" element={<ActivityForm />}/>
+        <Route path="/*" element={<NotFound />}/>
+      </Routes>
     </div>
   );
 }

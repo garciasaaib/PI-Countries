@@ -12,7 +12,8 @@ const createActivity = async (activityObject, countriesArray) => {
       duration: activityObject.duration,
       season: activityObject.season,
     })
-    activity['countries'] = await activity.addCountries(countriesArray)
+    await activity.addCountries(countriesArray)
+
 
 
     return activity
