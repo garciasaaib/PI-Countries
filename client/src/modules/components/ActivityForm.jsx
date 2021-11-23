@@ -3,7 +3,7 @@ import { useState } from "react";
 const ActivityForm = () => {
   const [inputs, setInputs] = useState({
     name: '',
-    dificulty: 1,
+    difficulty: 1,
     duration: 1,
   })
 
