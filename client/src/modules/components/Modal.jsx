@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 const Modal = () => {
   let navigate = useNavigate()
-  let {id} = useParams()
+  let params = useParams()
   let buttonRef = useRef(null)
 
   function onDismiss() {

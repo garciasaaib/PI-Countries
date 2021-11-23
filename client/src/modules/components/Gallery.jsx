@@ -1,28 +1,35 @@
-import { useState, useEffect } from "react";
-import { useLocation } from "react-router";
-import { api } from "../../utils/constants";
+import { useEffect } from "react";
+
+// redux
+import { useSelector, useDispatch } from "react-redux";
+import { getCountries} from "../../store/actions";
 
 // components
 import MiniCard from "../components/MiniCard";
 
 const Gallery = () => {
-  let location = useLocation()
-
+  const countries = useSelector((store) => store.countries)
+  const dispatch = useDispatch()
   // get countries list
-  const [countriesList, setCountriesList] = useState([])
   useEffect(() => {
-    async function getCountries() {
-      const response = await fetch(api.countriesList())
-        .then(data => data.json())
-      setCountriesList(response)
-    }
-    getCountries()
+    dispatch(getCountries())
   }, [])
+
+
+
   return (
-    <div>
-      {countriesList.map((country) =>
-        <MiniCard 
-          key={country.id} 
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(3, 1fr)",
+        maxWidth: "1000px",
+        margin: "auto",
+        gap: "1rem",
+      }}
+    >
+      {countries.map((country) =>
+        <MiniCard
+          key={country.id}
           {...country}
         >
           {country.name}

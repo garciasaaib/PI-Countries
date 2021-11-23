@@ -1,11 +1,19 @@
+import { useState } from "react";
 const Filterbar = () => {
+  const [filterName, setFilterName] = useState('')
+
+  const handleFilterName = event => {
+    
+  }
   return (
     <div>
       <form>
-        <input 
+      <input 
+          onChange={(event) => setFilterName(event.target.value)}
           type="text"
-          placeholder="Country..."
+          placeholder="Country name..."
         />
+        <input type="submit" value="filter" />
       </form>
 
 
@@ -18,7 +26,7 @@ const Filterbar = () => {
           <option>America</option>
           <option>Europe</option>
           <option>Oceania</option>
-          <option>Polar</option>
+          <option>Other</option>
         </select>
       </div>
 

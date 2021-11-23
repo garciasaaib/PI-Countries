@@ -23,7 +23,7 @@ const { prechargeCountries } = require('./src/controller/country')
 const port = 3001;
 
 // Syncing all the models at once.
-conn.sync({ force: false }).then(() => {
+conn.sync({ force: true }).then(() => {
   server.listen(port, async () => {
     try {
       await prechargeCountries()

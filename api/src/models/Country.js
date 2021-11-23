@@ -10,6 +10,11 @@ module.exports = (sequelize) => {
       allowNull:false,
       primaryKey: true,
     },
+    order: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      allowNull:false,
+    },
     name: {
       type: DataTypes.STRING,
       allowNull:false,
