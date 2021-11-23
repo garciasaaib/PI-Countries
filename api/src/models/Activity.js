@@ -5,7 +5,6 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('activity', {
     id: {
-      // codigo de 3 letras
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -29,7 +28,7 @@ module.exports = (sequelize) => {
       allowNull: false,
       validate: {
         min: 1,
-        max: 90,
+        max: 10,
       }
     },
     season:{

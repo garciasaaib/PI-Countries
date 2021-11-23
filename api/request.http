@@ -17,3 +17,5 @@ content-type: application/json
     "countries": ["ATF", "MEX", "ARG"]
 }
 
+### sudo service postgresql start
+### sudo -u postgres psql
