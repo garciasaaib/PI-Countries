@@ -1,14 +1,13 @@
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getCountries } from "../../store/actions";
+import { useSelector } from "react-redux";
+import useCallCountries from "../../hooks/useCallCountries";
+
 const MultiSelect = ({ input, setInput }) => {
   let countries = useSelector(store => store.countries.map(country => ({
     name: country.name, id: country.id
   })))
-  // if (!countries.length) {
-  //   const dispatch = useDispatch()
-  //   dispatch(getCountries)
-  // }
+  
+  useCallCountries()
 
   const [inputSearch, setInputSearch] = useState('')
   const handleInputSearch = (event) => {
@@ -31,7 +30,7 @@ const MultiSelect = ({ input, setInput }) => {
   return (
     <div>
       <div>
-        {input.countries.map((country, id) => <button type="button" onClick={handleDeleteCountry} key={id} value={country}>{country}</button>)}
+        {input.countries.map((country, id) => <button type="button" onClick={handleDeleteCountry} key={id} value={country} >{country}</button>)}
       </div>
       <div>
         <input
@@ -47,11 +46,12 @@ const MultiSelect = ({ input, setInput }) => {
         {countries?.map(country => {
           if (!input.countries.includes(country.id)) {
             const inputRegExp = new RegExp(inputSearch, 'i')
-            if(country.name.match(inputRegExp) || country.id.match(inputRegExp)) {
-
-              return (<option key={country.id} value={country.id} >
-              {country.name}
-            </option>)
+            if (country.name.match(inputRegExp) || country.id.match(inputRegExp)) {
+              return (
+                <option key={country.id} value={country.id} >
+                  {country.name}
+                </option>
+              )
             }
           }
         })}

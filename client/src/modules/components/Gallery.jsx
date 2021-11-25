@@ -1,41 +1,58 @@
-import { useEffect } from "react";
-
-// redux
-import { useSelector, useDispatch } from "react-redux";
-import { getCountries} from "../../store/actions";
-
 // components
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import useCallCountries from "../../hooks/useCallCountries";
 import MiniCard from "../components/MiniCard";
+import PageButtons from "./PageButtons";
+
+import {filterGalleryLogic} from "../../hooks/filterGalleryLogic"
 
 const Gallery = () => {
-  const countries = useSelector((store) => store.countries)
-  const dispatch = useDispatch()
-  // get countries list
+  let countries = useCallCountries()
+  const filters = useSelector(store => store.filters)
+  const [filteredCountries, setFilteredCountries] = useState([])
+
+  // primer render
   useEffect(() => {
-    dispatch(getCountries())
-  }, [])
+    setFilteredCountries(countries)
+  }, [countries])
+
+  // filtrado
+  useEffect(() => {
+    // newFilter()
+    filterGalleryLogic(filters, countries, filteredCountries, setFilteredCountries)
+    setLastPage(Math.ceil(filteredCountries.length / 9))
+  }, [filters])
+
+  // paginado
+  const [page, setPage] = useState(1)
+  const [lastPage, setLastPage] = useState(Math.ceil(countries.length / 9))
 
 
 
   return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(3, 1fr)",
-        maxWidth: "1000px",
-        margin: "auto",
-        gap: "1rem",
-      }}
-    >
-      {countries.map((country) =>
-        <MiniCard
-          key={country.id}
-          {...country}
-        >
-          {country.name}
-        </MiniCard>
-      )}
-    </div>
+    <>
+      <PageButtons currentPage={page} setCurrentPage={setPage} lastPage={lastPage} />
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          maxWidth: "1000px",
+          margin: "auto",
+          gap: "1rem",
+        }}
+      >
+        {filteredCountries.map((country) =>
+          <MiniCard
+            key={country.id}
+            {...country}
+          >
+            {country.name}
+          </MiniCard>
+        )}
+      </div>
+      <PageButtons currentPage={page} setCurrentPage={setPage} lastPage={lastPage} />
+    </>
   );
 }
 

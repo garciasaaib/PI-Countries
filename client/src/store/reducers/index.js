@@ -7,32 +7,56 @@
  */
 
 // solo retorna el estado
-import {actionTypes} from "../actions"
+import { actionTypes } from "../actions"
 const initialState = {
   countries: [],
   country: {},
-  message: ''
+  filters: {
+    filterByName: "",
+    filterByContinent: "",
+    orderByName: "",
+    orderByPopulation: "",
+    hasChanged: ""
+  },
 }
 
 const mainReducer = (state = initialState, action) => {
-  const { type, payload } = action
-  switch (type) {
+  switch (action.type) {
 
     case actionTypes.countries.callApi: {
       return {
         ...state,
-        countries: payload
+        countries: action.payload,
       }
     }
 
     case actionTypes.country.callApi: {
       return {
         ...state,
-        country: payload
+        country: action.payload
       }
     }
 
-    default: return {...state}
+    case actionTypes.countries.filter: {
+      const { type, hasChanged,...filterUpdated } = action
+      return {
+        ...state,
+        filters: { 
+          ...state.filters, 
+          ...filterUpdated,
+          hasChanged
+        },
+      }
+    }
+
+    case actionTypes.countries.resetFilter: {
+      return {
+        ...state,
+        filters: {...initialState.filters}
+      }
+    }
+
+    default: return { ...state }
   }
 }
 export default mainReducer

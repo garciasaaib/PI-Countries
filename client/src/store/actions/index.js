@@ -5,6 +5,7 @@ export const actionTypes = {
   countries: {
     callApi: "CALL_COUNTRIES_API",
     filter: "FILTER_COUNTRIES_LIST",
+    resetFilter: "RESET_FILTER_LIST",
     order: "ORDER_COUNTRIES_LIST",
   },
   country: {
@@ -34,11 +35,40 @@ export const getCountry = (id) => {
     return fetch(api.countryDetail(id))
       .then(result => result.json())
       .then(result => {
-        console.log(result)
         dispatch({
           type: actionTypes.country.callApi,
           payload: result
         })
       })
+  }
+}
+
+export const postActivity = (inputs) => {
+  return async () => {
+    await fetch(api.createActivity,
+      { 
+        method: 'POST',
+        headers:{
+          'Content-Type': 'application/json'
+        },
+        mode: 'cors',
+        body: JSON.stringify(inputs),
+      })
+      .then(data => console.log(data))
+      .then(data => getCountries())
+  }
+}
+
+export const setFilters = (action, value) => {
+  return {
+    type: actionTypes.countries.filter,
+    [action]: value,
+    hasChanged: action
+  }
+}
+
+export const resetFilters = () => {
+  return {
+    type: actionTypes.countries.resetFilter
   }
 }

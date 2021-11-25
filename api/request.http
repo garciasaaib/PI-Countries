@@ -11,8 +11,8 @@ content-type: application/json
 
 {
     "name": "nascion",
-    "difficulty": 3,
-    "duration": 5,
+    "difficulty": "3",
+    "duration": "5",
     "season": "summer",
     "countries": ["ATF", "MEX", "ARG"]
 }
