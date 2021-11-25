@@ -1,40 +1,45 @@
 // components
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import useCallCountries from "../../hooks/useCallCountries";
 import MiniCard from "../components/MiniCard";
 import PageButtons from "./PageButtons";
 
 import {filterGalleryLogic} from "../../hooks/filterGalleryLogic"
+import { resetFilters } from "../../store/actions";
 
 const Gallery = () => {
+  const dispatch = useDispatch()
   let countries = useCallCountries()
   const filters = useSelector(store => store.filters)
   const [filteredCountries, setFilteredCountries] = useState([])
+  
+  // paginado
+  const [page, setPage] = useState({})
+
 
   // primer render
   useEffect(() => {
     setFilteredCountries(countries)
+    setPage({
+      currentPage: 1,
+      lastPage: Math.ceil(countries.length / 9),
+      slicedNumber: 0
+    })
   }, [countries])
 
   // filtrado
   useEffect(() => {
     // newFilter()
-    filterGalleryLogic(filters, countries, filteredCountries, setFilteredCountries)
-    setLastPage(Math.ceil(filteredCountries.length / 9))
+    filterGalleryLogic(filters, countries, filteredCountries, setFilteredCountries, setPage)
   }, [filters])
-
-  // paginado
-  const [page, setPage] = useState(1)
-  const [lastPage, setLastPage] = useState(Math.ceil(countries.length / 9))
-
-
 
   return (
     <>
-      <PageButtons currentPage={page} setCurrentPage={setPage} lastPage={lastPage} />
+      <button className="btn" onClick={() => dispatch(resetFilters())}>Reset Filters</button>
+     {page.currentPage && <PageButtons pages={page} setCurrentPage={setPage} />}
       <div className="gallery">
-        {filteredCountries.map((country) =>
+        {filteredCountries.slice(page.slicedNumber, page.slicedNumber + 9).map((country) =>
           <MiniCard
             key={country.id}
             {...country}
@@ -43,7 +48,8 @@ const Gallery = () => {
           </MiniCard>
         )}
       </div>
-      <PageButtons currentPage={page} setCurrentPage={setPage} lastPage={lastPage} />
+     {page.currentPage && <PageButtons pages={page} setCurrentPage={setPage} />}
+
     </>
   );
 }

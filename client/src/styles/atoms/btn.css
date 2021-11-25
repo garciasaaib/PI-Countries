@@ -12,3 +12,12 @@
   overflow: hidden;
   margin-bottom: 7rem;
 }
+
+.btn {
+  border-radius: var(--border-radius-item);
+  background-color: var(--color-main);
+  padding: .5rem;
+  margin: .5rem;
+  box-shadow: var(--box-shadow-1);
+  cursor: pointer;
+}
