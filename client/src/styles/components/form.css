@@ -1,0 +1,32 @@
+.form {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  gap: 1rem;
+}
+
+.form-select select{
+  width: inherit;
+  height: 2.5rem;
+  padding-left: 1rem;
+  background-color: var(--color-main);
+  box-shadow: var(--box-shadow-1);
+  color: white;
+
+}
+.form-input {
+  display: flex;
+  flex-direction: column;
+}
+select {
+  background-color: var(--color-main);
+  padding-left: 1rem;
+  outline: none;
+  background: var(--color-main);
+  background-color: transparent;
+
+}
+label {
+  color: var(--color-disabled)
+}
