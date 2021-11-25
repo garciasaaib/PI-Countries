@@ -1,0 +1,7 @@
+.link-cover {
+  width: inherit;
+  height: inherit;
+  display: table-cell;           /*obtiene propiedades de una celda de una tabla*/
+  text-align: center;            /*alineamiento horizontal del hijo */
+  vertical-align: middle; 
+}

@@ -33,15 +33,7 @@ const Gallery = () => {
   return (
     <>
       <PageButtons currentPage={page} setCurrentPage={setPage} lastPage={lastPage} />
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          maxWidth: "1000px",
-          margin: "auto",
-          gap: "1rem",
-        }}
-      >
+      <div className="gallery">
         {filteredCountries.map((country) =>
           <MiniCard
             key={country.id}

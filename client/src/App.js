@@ -19,6 +19,8 @@ function App() {
   return (
     <div className="App">
       <Navbar>Henry Countries</Navbar>
+      <main>
+
       <Routes>
         <Route index element={<Landing />}/>
         <Route path="/home" element={<Home />}/>
@@ -26,6 +28,7 @@ function App() {
         <Route path="/activity/add" element={<ActivityForm />}/>
         <Route path="/*" element={<NotFound />}/>
       </Routes>
+      </main>
     </div>
   );
 }

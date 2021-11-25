@@ -46,7 +46,7 @@ const ActivityForm = () => {
 
 
 return (
-  <div>
+  <div className="form">
 
     <form onSubmit={handleSubmit}>
 
@@ -62,7 +62,7 @@ return (
         <label>Duration Weeks: {inputs.duration}</label>
         <input type="range" name="duration" min="1" max="20" value={inputs.duration} onChange={handleInputChange} required />
       </div>
-      <div>
+      <div className="input-select">
         <label>Season: </label>
         <select name="season" onChange={handleInputChange} required value={inputs.season}>
           <option value="summer">Summer</option>
@@ -71,7 +71,7 @@ return (
           <option value="spring">Spring</option>
         </select>
       </div>
-      <div>
+      <div className="input-select">
         <label>Countries: </label>
         <MultiSelect
           input={inputs}

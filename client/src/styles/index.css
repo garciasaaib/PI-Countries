@@ -1,6 +1,63 @@
+/* globals 
+Mobile: 375px
+Desktop: 1440px
+
+ --- colors
+Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
+Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
+Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
+Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
+Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
+White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%)
+
+- fontSize
+Homepage Items: 14px
+Detail Page: 16px
+
+- font family
+Family: Nunito Sans
+Weights: 300, 600, 800
+*/
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;800&display=swap');
+
+@import url('./views/index.css');
+@import url('./components/index.css');
+@import url('./atoms/index.css');
+
+:root {
+  /* widths */
+  --width-desktop: 1440px;
+  --width-mobile: 380px;
+  --width-content: 900px;
+
+  /* colors */
+  --color-main: hsl(209, 23%, 22%);
+  --color-primary: hsl(207, 26%, 17%);
+  --color-secondary: hsl(200, 15%, 8%);
+  --color-item: #202D36;
+  --color-text: hsl(0, 0%, 100%);
+  --color-disabled: hsl(0, 0%, 71%);
+
+  /* fontsize */
+  --fontsize-item: 14px;
+  --fontsize-detail: 16px;
+
+  /* shadows */
+  --box-shadow-1: 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
+
+  /* border-radius */
+  --border-radius-item: 6px;
+  --border-radius-btn: 20px;
+
+  /* main font */
+  --font-family-main: 'Nunito Sans'
+}
+
 body {
+  color: var(--color-text);
+  font-size: var(--fontsize-item);
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: var(--font-family-main), sans-serif,-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -14,4 +71,88 @@ code {
 
 img {
   width: 100%;
+}
+button {
+  background-color: var(--color-main);
+  color: var(--color-text);
+}
+button:hover {
+  background-blend-mode: darken;
+}
+
+input {
+  border-radius: var(--border-radius-item);
+  background: var(--color-main);
+  height: 2.5rem;
+  color: var(--color-text);
+  border: none;
+  padding: auto;
+  box-shadow: var(--box-shadow-1);
+  outline: none;
+  padding: 0 1rem;
+}
+::placeholder {
+  color: var(--color-disabled);
+  font-family: var(--font-family-main);
+}
+
+select {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+}
+
+
+
+a {
+  color: var(--color-text);
+  font-family: 'Nunito Sans', sans-serif;
+  text-decoration: none;
+}
+
+a:hover{
+  color: var(--);
+}
+
+h1 {
+  font-size: 5rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+p {
+  margin: 0.5rem 0;
+}
+
+header {
+  background-color: var(--color-main);
+  box-shadow: var(--box-shadow-1);
+}
+
+nav {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  max-width: calc(var(--width-content) - 2rem);
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+}
+main {
+  max-width: var(--width-content);
+  margin: auto;
+  padding: 0 auto;
 }

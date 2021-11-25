@@ -10,13 +10,13 @@ const Filterbar = () => {
   const handleFilterName = (event) => {
     dispatch(setFilters(event.target.name, event.target.value))
   }
-  
-  useEffect(()=> {
+
+  useEffect(() => {
     dispatch(resetFilters()) // cleanfilters
   }, [])
 
   return (
-    <div>
+    <div className="filterbar">
       <input
         value={filters.filterByName}
         onChange={handleFilterName}
@@ -26,37 +26,40 @@ const Filterbar = () => {
         autoComplete="off"
       />
 
+      <div className="container-select">
 
-      <div>
-        <label htmlFor="">Continent</label>
-        <select value={filters.filterByContinent} name="filterByContinent" id="" onChange={handleFilterName}>
-          <option value=''>All</option>
-          <option value='africa'>Africa</option>
-          <option value='asia'>Asia</option>
-          <option value='america'>America</option>
-          <option value='europe'>Europe</option>
-          <option value='oceania'>Oceania</option>
-          <option value='antarctica'>Antarctica</option>
-        </select>
+        <div className="input-select">
+          <label htmlFor="filterByContinent">Continent: </label>
+          <select value={filters.filterByContinent} name="filterByContinent" id="filterByContinent" onChange={handleFilterName}>
+            <option value=''>All</option>
+            <option value='africa'>Africa</option>
+            <option value='asia'>Asia</option>
+            <option value='america'>America</option>
+            <option value='europe'>Europe</option>
+            <option value='oceania'>Oceania</option>
+            <option value='antarctica'>Antarctica</option>
+          </select>
+        </div>
+
+        <div className="input-select">
+          <label htmlFor="">By Country</label>
+          <select value={filters.orderByName} name="orderByName" id="" onChange={handleFilterName}>
+            <option value=''></option>
+            <option value='asc'>Asc</option>
+            <option value='des'>Des</option>
+          </select>
+        </div>
+
+        <div className="input-select" htmlFor="orderByPopulation">
+          <label htmlFor="orderByPopulation">By Population:</label>
+          <select value={filters.orderByPopulation} name="orderByPopulation" id="orderByPopulation" onChange={handleFilterName} >
+            <option value=''></option>
+            <option value='asc'>Asc</option>
+            <option value='des'>Des</option>
+          </select>
+        </div>
       </div>
 
-      <div>
-        <label htmlFor="">Order by Country</label>
-        <select value={filters.orderByName} name="orderByName" id="" onChange={handleFilterName}>
-          <option value=''></option>
-          <option value='asc'>Asc</option>
-          <option value='des'>Des</option>
-        </select>
-      </div>
-
-      <div>
-        <label htmlFor="">Order by Population</label>
-        <select value={filters.orderByPopulation} name="orderByPopulation" id="" onChange={handleFilterName} >
-          <option value=''></option>
-          <option value='asc'>Asc</option>
-          <option value='des'>Des</option>
-        </select>
-      </div>
     </div>
   );
 }
