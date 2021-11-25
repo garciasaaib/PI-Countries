@@ -1,21 +1,14 @@
 
-import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Activitybox from "./Activitybox";
 
 // redux 
-import { useSelector, useDispatch } from "react-redux";
-import { getCountry } from "../../store/actions";
+import useCallDetails from "../../hooks/useCallDetails"
 
 
 const DetailCard = () => {
   let { id } = useParams();
-  const details = useSelector(store => store.country)
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(getCountry(id))
-  }, [])
+  const details = useCallDetails(id)
 
   return (
     <div>

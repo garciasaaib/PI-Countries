@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-const MiniCard = ({ id, name, image, continent, activities }) => {
+const MiniCard = ({ id, name, image, continent, population }) => {
   return (
     <div
       style={{
@@ -17,6 +17,7 @@ const MiniCard = ({ id, name, image, continent, activities }) => {
         <div>
           <h4>{name}</h4>
           <p>{continent}</p>
+          <code>{population}</code>
         </div>
       </Link>
     </div>

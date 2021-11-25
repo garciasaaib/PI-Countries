@@ -30,7 +30,7 @@ const prechargeCountries = async () => {
 
 const countriesList = async (name) => {
   let searchConfig = {
-    attributes: ['id', 'name', 'image', 'continent'],
+    attributes: ['id', 'name', 'image','population', 'continent'],
     include: {
       model: Activity,
       as: 'activities',
