@@ -13,7 +13,7 @@ const DetailCard = () => {
   return (
     <div>
       {details.id
-        ? <>
+        ? (<div class="card-detail">
           <div>
             <img src={details.image} alt="" />
           </div>
@@ -30,8 +30,8 @@ const DetailCard = () => {
             ))
             }
           </div>
-        </>
-        : <>Loading...</>
+        </div>)
+        : <div>Loading...</div>
       }
 
     </div>

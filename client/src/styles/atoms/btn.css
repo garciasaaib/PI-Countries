@@ -1,0 +1,23 @@
+/* buttons */
+.btn-circular {
+  width: 10rem;
+  height: 10rem;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 2rem;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 30px;
+  background-color: var(--color-item);
+  overflow: hidden;
+  margin-bottom: 7rem;
+}
+
+.btn {
+  border-radius: var(--border-radius-item);
+  background-color: var(--color-main);
+  padding: .5rem;
+  margin: .5rem;
+  box-shadow: var(--box-shadow-1);
+  cursor: pointer;
+}

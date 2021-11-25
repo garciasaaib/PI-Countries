@@ -2,22 +2,15 @@ import { Link } from "react-router-dom"
 
 const MiniCard = ({ id, name, image, continent, population }) => {
   return (
-    <div
-      style={{
-        border: "red solid 2px",
-        height: "300px",
-        boxSizing: "border-box",
-        maxWidth: "300px"
-      }}
-    >
-      <Link to={`/country/${id}`}>
-        <div>
-          <img src={image} style={{ width: "100%" }} alt="" />
+    <div className="minicard">
+      <Link className="link-cover" to={`/country/${id}`}>
+        <div className="minicard-image container-image">
+          <img src={image} alt="" />
         </div>
-        <div>
-          <h4>{name}</h4>
-          <p>{continent}</p>
-          <code>{population}</code>
+        <div className="container-text">
+          <p className="text-title">{name}</p>
+          <p><b>Continent: </b>{continent}</p>
+          <p><b>Population: </b>{population}</p>
         </div>
       </Link>
     </div>
