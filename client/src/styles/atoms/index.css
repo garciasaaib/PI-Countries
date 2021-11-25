@@ -2,3 +2,14 @@
 @import url('./link.css');
 @import url('./text.css');
 @import url('./inputs.css');
+@import url('./images.css');
+@import url('./grids.css');
+
+.start {
+  float: left;
+}
+
+.block {
+  display: inline-block;
+  width: 100%;
+}

@@ -14,10 +14,34 @@
 }
 
 .btn {
+  border: none;
   border-radius: var(--border-radius-item);
   background-color: var(--color-main);
-  padding: .5rem;
+  padding: .6rem 1rem;
   margin: .5rem;
   box-shadow: var(--box-shadow-1);
   cursor: pointer;
+}
+
+.btn:disabled {
+  color: var(--color-disabled);
+  box-shadow: none;
+}
+
+.btn-link {
+  border: none;
+  border-radius: var(--border-radius-item);
+  background-color: var(--color-main);
+  margin: 2rem .5rem;
+  box-shadow: var(--box-shadow-1);
+  cursor: pointer;
+}
+.btn-link > a {
+  padding: .6rem 1rem;
+}
+.btn-touch-delete {
+  padding:.4rem;
+}
+.btn-touch-delete:hover {
+  background-color: brown;
 }

@@ -1,0 +1,8 @@
+.image-marco {
+  border-radius: var(--border-radius-item);
+  overflow: hidden;
+  box-shadow: var(--box-shadow-1);
+}
+.image-marco img{
+  height: 105%;
+}

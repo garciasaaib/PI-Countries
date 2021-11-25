@@ -29,11 +29,16 @@ const MultiSelect = ({ input, setInput }) => {
   }
   return (
     <div>
+      <label>Countries: </label>
+
       <div>
-        {input.countries.map((country, id) => <button type="button" onClick={handleDeleteCountry} key={id} value={country} >{country}</button>)}
+        {input.countries.map((country, id) => <button className="btn btn-touch-delete " type="button" onClick={handleDeleteCountry} key={id} value={country} >{country}</button>)}
       </div>
       <div>
         <input
+          style={{
+            width: "100%",
+          }}
           type="search"
           name="search"
           onChange={handleInputSearch}
@@ -42,7 +47,11 @@ const MultiSelect = ({ input, setInput }) => {
           autoComplete="off"
         />
       </div>
-      <select multiple name="countries" onChange={handleAddCountry} >
+      <div>
+        
+      </div>
+
+      <select className="" multiple name="countries" onChange={handleAddCountry} >
         {countries?.map(country => {
           if (!input.countries.includes(country.id)) {
             const inputRegExp = new RegExp(inputSearch, 'i')

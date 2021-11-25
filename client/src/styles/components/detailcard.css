@@ -1,0 +1,9 @@
+.detailcard {
+  display: grid;
+  grid-template-columns: 60% 1fr;
+  gap: 1rem;
+  margin: 0 .5rem;
+}
+.detailcard > * {
+  text-align: start;
+}
