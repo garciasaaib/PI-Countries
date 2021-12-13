@@ -6,7 +6,6 @@ const Navbar = () => {
 
         <div className="logo">
           <Link to="/">Countries Logo</Link>
-
         </div>
 
         <ul>

@@ -18,7 +18,7 @@ export const filterGalleryLogic = async (
       case "orderByName": {
         filteredArray = letOrder(filteredCountries, filters)
 
-break;
+        break;
       }
       default: break;
     }
@@ -29,21 +29,19 @@ break;
     setFilteredCountries(countries)
     lastPage = Math.ceil(countries.length / 9)
   }
-  setPage({ currentPage: 1, lastPage, slicedNumber: 0})
-  
+  setPage({ currentPage: 1, lastPage, slicedNumber: 0 })
+
 }
 
 
 function letFilter(countries, filters) {
   const expName = new RegExp(filters.filterByName, 'i')
   const expContinent = new RegExp(filters.filterByContinent, 'i')
-  const newData = countries.filter(data => {
-    if (
-      
+  const newData = countries.filter(data => (
       expContinent.test(data.continent) &&
       (expName.test(data.name) || expName.test(data.id) || data.activities.find(activity => expName.test(activity.name)))
-    ) return data
-  })
+    )
+  )
   return newData
 }
 

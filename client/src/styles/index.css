@@ -37,13 +37,15 @@ Weights: 300, 600, 800
   --color-item: #202D36;
   --color-text: hsl(0, 0%, 100%);
   --color-disabled: hsl(0, 0%, 71%);
-
+  
+  --color-hover: hsl(200, 15%, 8%);
   /* fontsize */
   --fontsize-item: 14px;
   --fontsize-detail: 16px;
 
   /* shadows */
-  --box-shadow-1: 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
+  --box-shadow-1: 0px 0px 2px 1px rgba(37, 37, 37, 0.2);
+  --box-shadow-2: 0px 0px 2px 1px rgba(139, 131, 131, 0.2);
 
   /* border-radius */
   --border-radius-item: 6px;

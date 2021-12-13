@@ -1,15 +1,13 @@
 // components
 import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import useCallCountries from "../../hooks/useCallCountries";
 import MiniCard from "../components/MiniCard";
 import PageButtons from "./PageButtons";
 
 import {filterGalleryLogic} from "../../hooks/filterGalleryLogic"
-import { resetFilters } from "../../store/actions";
 
 const Gallery = () => {
-  const dispatch = useDispatch()
   let countries = useCallCountries()
   const filters = useSelector(store => store.filters)
   const [filteredCountries, setFilteredCountries] = useState([])
@@ -36,7 +34,6 @@ const Gallery = () => {
 
   return (
     <>
-      <button className="btn" onClick={() => dispatch(resetFilters())}>Reset Filters</button>
      {page.currentPage && <PageButtons pages={page} setCurrentPage={setPage} />}
       <div className="gallery">
         {filteredCountries.slice(page.slicedNumber, page.slicedNumber + 9).map((country) =>

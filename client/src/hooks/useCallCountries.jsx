@@ -6,10 +6,8 @@ const useCallCountries = () => {
   const countries = useSelector((store) => store.countries)
   const dispatch = useDispatch()
   useEffect(() => { // call o not to the api
-    if (!countries.length) {
-      dispatch(getCountries())
-    }
-  }, [])
+    if (!countries.length) dispatch(getCountries())
+  })
 
   return countries;
 }

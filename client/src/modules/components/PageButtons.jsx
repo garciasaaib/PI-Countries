@@ -1,11 +1,6 @@
 
 const PageButtons = ({ pages, setCurrentPage }) => {
   const [previousPage, nextPage] = [pages.currentPage - 1, pages.currentPage + 1]
-
-  const handlerClick = (currentPage) => {
-    const slicedNumber = (pages.currentPage * 9);
-
-  }
   return (
     <div>
       {

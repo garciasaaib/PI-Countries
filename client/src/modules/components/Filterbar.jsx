@@ -1,32 +1,51 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setFilters, resetFilters } from "../../store/actions";
+
+import InputSearch from "../atoms/InputSearch";
 
 // settea los filtros en el objeto global de redux
 const Filterbar = () => {
   const filters = useSelector(store => store.filters)
   const dispatch = useDispatch()
 
+  const [showFilters, setShowFilters] = useState(false)
+
+  const toggleShowFilters = () => {
+    // if i want to filter
+    if(!showFilters)
+      console.log('es falsy')
+    else if(showFilters)
+      console.log('es trully')
+
+    // setShowFilters()
+    // dispatch(resetFilters())
+  }
+
   const handleFilterName = (event) => {
     dispatch(setFilters(event.target.name, event.target.value))
   }
 
-  useEffect(() => {
-    dispatch(resetFilters()) // cleanfilters
-  }, [])
+  // first render clean filters
+  useEffect(() => dispatch(resetFilters()),[])
+
+ 
 
   return (
     <div className="filterbar">
-      <input
-        value={filters.filterByName}
-        onChange={handleFilterName}
-        name="filterByName"
-        type="search"
-        placeholder="Country name..."
-        autoComplete="off"
-      />
+      <div className="filterbar-top">
+        <InputSearch />
 
-      <div className="container-select">
+        <button className="btn" onClick={toggleShowFilters}>
+          {!showFilters ? 'Show Filters' : 'Hides Filters'}
+        </button>
+
+      </div>
+
+      <div className="container-select"
+        style={{ display: `${!showFilters ? 'none' : 'flex'}` }}
+      >
+
 
         <div className="input-select">
           <label htmlFor="filterByContinent">Continent: </label>
@@ -60,7 +79,7 @@ const Filterbar = () => {
         </div>
       </div>
 
-    </div>
+    </div >
   );
 }
 

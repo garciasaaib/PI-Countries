@@ -17,15 +17,25 @@
   border: none;
   border-radius: var(--border-radius-item);
   background-color: var(--color-main);
-  padding: .6rem 1rem;
+  padding: .8rem 1rem;
   margin: .5rem;
   box-shadow: var(--box-shadow-1);
   cursor: pointer;
+}
+.btn:hover {
+  /* background-color: grey; */
+  box-shadow: var(--box-shadow-2);
+
 }
 
 .btn:disabled {
   color: var(--color-disabled);
   box-shadow: none;
+  cursor:initial;
+}
+
+.btn:disabled:hover {
+  background-color: var(--color-main);
 }
 
 .btn-link {
