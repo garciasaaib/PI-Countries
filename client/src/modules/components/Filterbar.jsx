@@ -13,13 +13,13 @@ const Filterbar = () => {
 
   const toggleShowFilters = () => {
     // if i want to filter
-    if(!showFilters)
-      console.log('es falsy')
-    else if(showFilters)
-      console.log('es trully')
-
-    // setShowFilters()
-    // dispatch(resetFilters())
+    if(!showFilters){
+      setShowFilters(!showFilters)
+    }
+    else if(showFilters){
+      setShowFilters(!showFilters)
+      dispatch(resetFilters())
+    }
   }
 
   const handleFilterName = (event) => {
@@ -37,7 +37,7 @@ const Filterbar = () => {
         <InputSearch />
 
         <button className="btn" onClick={toggleShowFilters}>
-          {!showFilters ? 'Show Filters' : 'Hides Filters'}
+          {!showFilters ? 'Show Filters' : 'Quit Filters'}
         </button>
 
       </div>
@@ -61,7 +61,16 @@ const Filterbar = () => {
         </div>
 
         <div className="input-select">
-          <label htmlFor="">By Country</label>
+          <label htmlFor="">Activity:</label>
+          <select value={filters.orderByName} name="orderByName" id="" onChange={handleFilterName}>
+            <option value=''></option>
+            <option value='asc'>Asc</option>
+            <option value='des'>Des</option>
+          </select>
+        </div>
+
+        <div className="input-select">
+          <label htmlFor="">Order Name:</label>
           <select value={filters.orderByName} name="orderByName" id="" onChange={handleFilterName}>
             <option value=''></option>
             <option value='asc'>Asc</option>
@@ -70,7 +79,7 @@ const Filterbar = () => {
         </div>
 
         <div className="input-select" htmlFor="orderByPopulation">
-          <label htmlFor="orderByPopulation">By Population:</label>
+          <label htmlFor="orderByPopulation">Order Population:</label>
           <select value={filters.orderByPopulation} name="orderByPopulation" id="orderByPopulation" onChange={handleFilterName} >
             <option value=''></option>
             <option value='asc'>Asc</option>

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-const MiniCard = ({ id, name, image, continent, population }) => {
+const MiniCard = ({ id, name, image, continent, population, activity}) => {
   return (
     <div className="minicard">
       <Link className="link-cover" to={`/country/${id}`}>
