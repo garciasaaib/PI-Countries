@@ -5,12 +5,14 @@ GET http://localhost:3001/countries?name=mex HTTP/1.1
 ### get pokemon by name
 GET http://localhost:3001/countries/mex HTTP/1.1
 
+### get pokemon by name
+GET http://localhost:3001/activity HTTP/1.1
 ### create an activity
 POST http://localhost:3001/activity HTTP/1.1
 content-type: application/json
 
 {
-    "name": "nascion",
+    "name": "surf",
     "difficulty": "3",
     "duration": "5",
     "season": "summer",

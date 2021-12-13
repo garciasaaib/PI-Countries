@@ -20,6 +20,14 @@ router.post('/', async (req, res, next) => {
   }
 })
 
+router.get('/', async (req, res, next) => {
 
+  try {
+    const response = await activityController.getAll() 
+    res.json(response)
+  } catch (error) {
+    next(error)
+  }
+})
 
 module.exports = router;

@@ -39,8 +39,9 @@ function letFilter(countries, filters) {
   const expContinent = new RegExp(filters.filterByContinent, 'i')
   const newData = countries.filter(data => {
     if (
+      
       expContinent.test(data.continent) &&
-      (expName.test(data.name) || (expName.test(data.id)))
+      (expName.test(data.name) || expName.test(data.id) || data.activities.find(activity => expName.test(activity.name)))
     ) return data
   })
   return newData
