@@ -3,10 +3,10 @@
   height: 2.5rem;
   display: flex;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0 ;
   border-radius: var(--border-radius-item);
   position: relative;
-  width: 8rem;
+  /* width: 8rem; */
   box-shadow: var(--box-shadow-1);
 }
 .input-select label {
@@ -22,7 +22,9 @@ option {
   color: var(--color-text);
   outline: none;
   cursor: pointer;
-  padding: 1rem;
+  padding: .6rem 1rem;
+  width: 100%;
+  border-bottom: 1px solid var(--color-primary)
 }
 .input-select select {
   /* border: 1px solid red; */
@@ -41,10 +43,17 @@ option {
   text-align: right;
   text-overflow: ellipsis;
 }
-
+select {
+  height: 8rem;
+}
 
 
 input[type="range"] {
   box-shadow: none;
   padding: 0;
+}
+
+input[type="submit"] {
+  margin: auto;
+  padding: 3rem auto;
 }

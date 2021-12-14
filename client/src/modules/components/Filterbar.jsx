@@ -2,24 +2,22 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setFilters, resetFilters } from "../../store/actions";
 
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 import InputSearch from "../atoms/InputSearch";
 
 // settea los filtros en el objeto global de redux
 const Filterbar = () => {
   const filters = useSelector(store => store.filters)
+  const activities = useSelector(store => store.filters)
   const dispatch = useDispatch()
 
   const [showFilters, setShowFilters] = useState(false)
 
   const toggleShowFilters = () => {
     // if i want to filter
-    if(!showFilters){
-      setShowFilters(!showFilters)
-    }
-    else if(showFilters){
-      setShowFilters(!showFilters)
-      dispatch(resetFilters())
-    }
+    setShowFilters(!showFilters)
+    console.log(filters)
+    if (filters.hasChanged) { dispatch(resetFilters()) }
   }
 
   const handleFilterName = (event) => {
@@ -27,23 +25,25 @@ const Filterbar = () => {
   }
 
   // first render clean filters
-  useEffect(() => dispatch(resetFilters()),[])
+  useEffect(() => dispatch(resetFilters()), [])
 
- 
+
 
   return (
     <div className="filterbar">
       <div className="filterbar-top">
         <InputSearch />
 
-        <button className="btn" onClick={toggleShowFilters}>
-          {!showFilters ? 'Show Filters' : 'Quit Filters'}
-        </button>
+        <div className="btn-half">
+          <button className="btn" onClick={toggleShowFilters}>
+            Filters {!showFilters ? < MdKeyboardArrowDown  className="icon" /> : <MdKeyboardArrowUp className="icon" />}
+          </button>
+        </div>
 
       </div>
 
       <div className="container-select"
-        style={{ display: `${!showFilters ? 'none' : 'flex'}` }}
+        style={{ display: `${!showFilters ? 'none' : ''}` }}
       >
 
 
@@ -60,14 +60,19 @@ const Filterbar = () => {
           </select>
         </div>
 
-        <div className="input-select">
-          <label htmlFor="">Activity:</label>
-          <select value={filters.orderByName} name="orderByName" id="" onChange={handleFilterName}>
-            <option value=''></option>
-            <option value='asc'>Asc</option>
-            <option value='des'>Des</option>
-          </select>
-        </div>
+
+        {activities.length && (
+
+          <div className="input-select">
+            <label htmlFor="">Activity:</label>
+            <select value={filters.orderByName} name="orderByName" id="" onChange={handleFilterName}>
+              <option value=''>All</option>
+
+              <option value='asc'>Asc</option>
+              <option value='des'>Des</option>
+            </select>
+          </div>
+        )}
 
         <div className="input-select">
           <label htmlFor="">Order Name:</label>

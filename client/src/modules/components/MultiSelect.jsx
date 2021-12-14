@@ -12,7 +12,7 @@ const MultiSelect = ({ input, setInput }) => {
   const [inputSearch, setInputSearch] = useState('')
   const handleInputSearch = (event) => {
     setInputSearch(event.target.value)
-    console.log(inputSearch)
+    // console.log(inputSearch)
   }
 
   const handleAddCountry = (event) => {
@@ -30,18 +30,9 @@ const MultiSelect = ({ input, setInput }) => {
   return (
     <div>
 
-      <label>Countries:
-        <div>
-          {input.countries.map((country, id) => <button
-            className="btn btn-touch-delete "
-            type="button"
-            onClick={handleDeleteCountry}
-            key={id}
-            value={country}
-          >{country}</button>
-          )}
-        </div>
-      </label>
+      <label>Countries:</label>
+
+
       <div>
         <input
           style={{
@@ -57,19 +48,28 @@ const MultiSelect = ({ input, setInput }) => {
       </div>
 
       <select className="" multiple name="countries" onChange={handleAddCountry} >
-        {
-          countries.filter(country => {
-            let condition = false
-            if (!input.countries.includes(country.id)) {
-              const inputRegExp = new RegExp(inputSearch, 'i')
-              if (country.name.match(inputRegExp) || country.id.match(inputRegExp)) {
-                condition = true
-              }
+        {countries.filter(country => {
+          let condition = false
+          if (!input.countries.includes(country.id)) {
+            const inputRegExp = new RegExp(inputSearch, 'i')
+            if (country.name.match(inputRegExp) || country.id.match(inputRegExp)) {
+              condition = true
             }
-            return condition
-          }).map(country => <option key={country.id} value={country.id}>{country.name}</option>)
+          }
+          return condition
+        }).map(country => <option key={country.id} value={country.id}>{country.name}</option>)
         }
       </select>
+      <div>
+        {input.countries.map((country, id) => <button
+          className="btn btn-touch-delete "
+          type="button"
+          onClick={handleDeleteCountry}
+          key={id}
+          value={country}
+        >{country}</button>
+        )}
+      </div>
     </div>
   );
 }

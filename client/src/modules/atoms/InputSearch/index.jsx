@@ -18,7 +18,7 @@ const InputSearch = () => {
         onChange={handleFilterName}
         name="filterByName"
         type="search"
-        placeholder="Country name..."
+        placeholder="Search for a country..."
         autoComplete="off"
       />
     </div>

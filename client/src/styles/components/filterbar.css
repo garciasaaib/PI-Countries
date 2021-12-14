@@ -1,17 +1,17 @@
 .filterbar {
   max-width: var(--width-content);
   margin: 1rem;
-  /* display: flex; */
-  /* justify-content: space-between; */
-  /* align-items: center; */
+}
+.filterbar .input {
+  width: 100%;
 }
 .filterbar-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: block;
+
+
 }
 .container-select {
-  /* display: flex; */
-  gap: 1rem;
-  justify-content: flex-end;
+  display: grid;
+  gap: .5rem;
+
 }

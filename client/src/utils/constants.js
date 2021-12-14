@@ -5,4 +5,5 @@ export const api = {
   countriesList: (name) => `${host}/countries${name ? `?name=${name}` : ''}`,
   countryDetail: (code) => `${host}/countries/${code}`, 
   createActivity: `${host}/activity`,
+  activityList: () => `${host}/activity`,
 }

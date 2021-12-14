@@ -42,16 +42,36 @@
   border: none;
   border-radius: var(--border-radius-item);
   background-color: var(--color-main);
-  margin: 2rem .5rem;
+  margin: 1rem 1rem;
   box-shadow: var(--box-shadow-1);
   cursor: pointer;
 }
 .btn-link > a {
   padding: .6rem 1rem;
 }
+
+.btn-cta {
+  width: initial;
+  padding: 1rem 3rem;
+}
 .btn-touch-delete {
   padding:.4rem;
 }
 .btn-touch-delete:hover {
   background-color: brown;
+}
+
+.btn-half {
+  margin-top: 1.5rem;
+  /* background-color: brown; */
+  display: flex;
+  /* width: 00%; */
+  /* margin-right: auto; */
+}
+  
+.btn-half > .btn {
+  width: 60%;
+  position: relative;
+  margin-left: 0;
+  
 }
