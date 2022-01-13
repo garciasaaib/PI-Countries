@@ -1,12 +1,17 @@
 .filterbar {
   max-width: var(--width-content);
   margin: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
+.filterbar .input {
+  width: 100%;
+}
+.filterbar-top {
+  display: block;
 
+
+}
 .container-select {
-  display: flex;
-  gap: 1rem;
+  display: grid;
+  gap: .5rem;
+
 }

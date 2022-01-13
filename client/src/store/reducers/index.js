@@ -14,10 +14,12 @@ const initialState = {
   filters: {
     filterByName: "",
     filterByContinent: "",
+    filterByActivity: "",
     orderByName: "",
     orderByPopulation: "",
     hasChanged: ""
   },
+  activities: [],
 }
 
 const mainReducer = (state = initialState, action) => {
@@ -56,6 +58,12 @@ const mainReducer = (state = initialState, action) => {
       }
     }
 
+    case actionTypes.activity.callApi: {
+      return {
+        ...state,
+        activities: action.payload,
+      }
+    }
     default: return { ...state }
   }
 }

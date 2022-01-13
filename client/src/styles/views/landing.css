@@ -6,16 +6,16 @@
   top:0;
   bottom:0;
   left: 0;
-  display: inline;
-  min-width: 100%;
+  /* display: inline; */
+  /* min-width: 100%; */
 }
 .landing-content {
-  max-width: var(--width-content);
+  /* max-width: var(--width-content); */
   margin: auto;
-  display: grid;
+  /* display: grid; */
   /* background-color: aliceblue; */
   height: 100%;
-  grid-template-columns: 60% 40%;
+  /* grid-template-columns: 60% 40%; */
   align-items: center;
   
 }

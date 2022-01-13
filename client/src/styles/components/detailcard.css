@@ -1,8 +1,7 @@
 .detailcard {
-  display: grid;
-  grid-template-columns: 60% 1fr;
-  gap: 1rem;
-  margin: 0 .5rem;
+  /* gap: 1rem; */
+  margin: 1rem;
+  box-sizing: content-box;
 }
 .detailcard > * {
   text-align: start;

@@ -13,7 +13,8 @@ export const actionTypes = {
     get: "GET_COUNTRY_DATA",
   },
   activity: {
-    add: "ADD_ACTIVITY_DB"
+    add: "ADD_ACTIVITY_DB",
+    callApi: "CALL_ACTIVITY_API"
   }
 }
 
@@ -43,12 +44,25 @@ export const getCountry = (id) => {
   }
 }
 
+export const getActivities = () => {
+  return (dispatch) => {
+    return fetch(api.activityList())
+      .then(result => result.json())
+      // .then(result => console.log(result))
+      .then(result => {
+        dispatch({
+          type: actionTypes.activity.callApi,
+          payload: result
+        })
+      })
+  }
+}
 export const postActivity = (inputs) => {
   return async () => {
     await fetch(api.createActivity,
-      { 
+      {
         method: 'POST',
-        headers:{
+        headers: {
           'Content-Type': 'application/json'
         },
         mode: 'cors',

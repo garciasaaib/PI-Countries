@@ -1,0 +1,17 @@
+.input-search {
+  position: relative;
+}
+.icon {
+  position: absolute;
+  font-size: 1.4rem;
+  color: var(--color-disabled);
+  /* background: red; */
+  top: 0;
+  bottom: 0;
+  left: .6rem;
+  height: 100%;
+
+}
+.input {
+  padding: 0 1rem 0 2.5rem;
+}

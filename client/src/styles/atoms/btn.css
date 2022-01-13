@@ -17,31 +17,61 @@
   border: none;
   border-radius: var(--border-radius-item);
   background-color: var(--color-main);
-  padding: .6rem 1rem;
+  padding: .8rem 1rem;
   margin: .5rem;
   box-shadow: var(--box-shadow-1);
   cursor: pointer;
+}
+.btn:hover {
+  /* background-color: grey; */
+  box-shadow: var(--box-shadow-2);
+
 }
 
 .btn:disabled {
   color: var(--color-disabled);
   box-shadow: none;
+  cursor:initial;
+}
+
+.btn:disabled:hover {
+  background-color: var(--color-main);
 }
 
 .btn-link {
   border: none;
   border-radius: var(--border-radius-item);
   background-color: var(--color-main);
-  margin: 2rem .5rem;
+  margin: 1rem 1rem;
   box-shadow: var(--box-shadow-1);
   cursor: pointer;
 }
 .btn-link > a {
   padding: .6rem 1rem;
 }
+
+.btn-cta {
+  width: initial;
+  padding: 1rem 3rem;
+}
 .btn-touch-delete {
   padding:.4rem;
 }
 .btn-touch-delete:hover {
   background-color: brown;
+}
+
+.btn-half {
+  margin-top: 1.5rem;
+  /* background-color: brown; */
+  display: flex;
+  /* width: 00%; */
+  /* margin-right: auto; */
+}
+  
+.btn-half > .btn {
+  width: 60%;
+  position: relative;
+  margin-left: 0;
+  
 }

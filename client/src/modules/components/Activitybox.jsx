@@ -1,7 +1,7 @@
 const Activitybox = (activity) => {
   return (
-    <div>
-      <h4>{activity.name}</h4>
+    <div className="activitybox">
+      <h3>{activity.name}</h3>
       <p>{activity.duration}</p>
       <p>{activity.difficulty}</p>
       <p>{activity.season}</p>

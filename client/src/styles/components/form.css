@@ -1,5 +1,4 @@
 .form {
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   padding: 2rem 1rem;
@@ -13,7 +12,13 @@
   background-color: var(--color-main);
   box-shadow: var(--box-shadow-1);
   color: white;
+  border-radius: 4px;
+  position: relative;
 
+}
+.form-select option{
+  position: absolute;
+  top: 1remM
 }
 .form-input {
   display: flex;
@@ -28,5 +33,8 @@ select {
 
 }
 label {
-  color: var(--color-disabled)
+  display: block;
+  color: var(--color-disabled);
+  text-align: left;
+  padding-left: 1rem;
 }
