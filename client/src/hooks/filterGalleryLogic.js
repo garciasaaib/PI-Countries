@@ -8,6 +8,7 @@ export const filterGalleryLogic = async (
     switch (filters.hasChanged) {
       // si es uno de los filtros el que ha cambiado
       case "filterByName":
+      case "filterByActivity":
       case "filterByContinent": {
 
         filteredArray = letFilter(countries, filters)
@@ -33,19 +34,27 @@ export const filterGalleryLogic = async (
 
 }
 
-
+// function to filter countries list
 function letFilter(countries, filters) {
+
+  // regex list
   const expName = new RegExp(filters.filterByName, 'i')
   const expContinent = new RegExp(filters.filterByContinent, 'i')
+  // const expActivity = new RegExp(, 'i')
+  console.log(filters.filterByActivity)
+  /**
+   * 
+   */
   const newData = countries.filter(data => (
       expContinent.test(data.continent) &&
+      data.activities.some(filters.filterByActivity) &&
       (expName.test(data.name) || expName.test(data.id) || data.activities.find(activity => expName.test(activity.name)))
     )
   )
   return newData
 }
 
-
+// function to order countries list
 function letOrder(filteredArray, filters) {
   if (filters.orderByName !== '') {
     filteredArray.sort((a, b) => {

@@ -1,6 +1,7 @@
 .detailcard {
   /* gap: 1rem; */
   margin: 1rem;
+  box-sizing: content-box;
 }
 .detailcard > * {
   text-align: start;

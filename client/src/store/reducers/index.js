@@ -14,6 +14,7 @@ const initialState = {
   filters: {
     filterByName: "",
     filterByContinent: "",
+    filterByActivity: "",
     orderByName: "",
     orderByPopulation: "",
     hasChanged: ""
